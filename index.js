@@ -5,6 +5,10 @@ const cors = require('cors')
 const axios = require('axios')
 app.use(cors())
 
+app.get("/", (req,res)=> {
+    return res.send("<h1>Hey</h1>")
+})
+
 app.get("/latest-price-by-symbols", async (req, res, next) => {
     try {
         const { data } = await axios.get("https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest", {
